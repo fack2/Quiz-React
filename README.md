@@ -1,10 +1,10 @@
 # Quiz-React
 
 # User Journey
- - As a user im able to see a home page with a button to start the quiz
- - As a user im able to press the start button and see the quiz screen with the first question diplayed
- - As a user im able to choose an answer and know if its correct
- - As a user if I choose the correct answer, I can see the next question 
+ - As a user I'm able to see a home page with a button to start the quiz
+ - As a user I'm able to press the start button and see the quiz screen with the first question displayed
+ - As a user I'm able to choose an answer and know if its correct
+ - As a user after answering the question, I can see the next question 
  - As a user I can see a progress bar to see the number of questions I answered
  
 
