@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import '..public/App'
+import './App'
 
 class App extends Component {
 	render() {
