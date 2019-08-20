@@ -47,7 +47,6 @@
 
   3- Run on your termial npm run dev.
 
-  4- Open the app by write in your browser http://localhost:1234
 
 # Prototype
   ![Screenshot from 2019-08-20 12-04-34](https://user-images.githubusercontent.com/27896127/63334315-daa54480-c343-11e9-9124-147cee6dc947.png)
