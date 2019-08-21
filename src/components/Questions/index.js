@@ -10,28 +10,30 @@ class Questions extends Component {
   }
 
   nextQuestion = () => {
-    this.state.index !== 4
+    let { index, end } = this.state
+    index !== data.length - 1
       ? this.setState(
           {
-            index: this.state.index + 1
+            index: index + 1
           },
           () => {
-            this.setState({ currentQuestion: data[this.state.index] })
+            const { index } = this.state
+            this.setState({ currentQuestion: data[index] })
           }
         )
-      : this.setState({ end: !this.state.end })
+      : this.setState({ end: !end })
   }
 
   render() {
+    let { currentQuestion, end } = this.state
+    let { question, options } = currentQuestion
     return (
       <div className="largerOne">
-        {!this.state.end ? (
+        {!end ? (
           <div>
-            <div className="question-div">
-              {this.state.currentQuestion.question}
-            </div>
+            <div className="question-div">{question}</div>
             <ul className="list">
-              {this.state.currentQuestion.options.map((value, i) => {
+              {options.map((value, i) => {
                 return (
                   <li onClick={this.nextQuestion} key={i}>
                     {value}
