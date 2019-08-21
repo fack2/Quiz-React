@@ -10,7 +10,7 @@ class Questions extends Component {
   }
 
   nextQuestion = () => {
-    let { index, end } = this.state
+    const { index, end } = this.state
     index !== data.length - 1
       ? this.setState(
           {
@@ -25,8 +25,8 @@ class Questions extends Component {
   }
 
   render() {
-    let { currentQuestion, end } = this.state
-    let { question, options } = currentQuestion
+    const { currentQuestion, end } = this.state
+    const { question, options } = currentQuestion
     return (
       <div className="largerOne">
         {!end ? (
