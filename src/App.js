@@ -1,14 +1,11 @@
-import React, { Component } from 'react'
-import './App'
+import React, { Component } from "react"
+import Questions from "./components/questions/Questions.js"
+import "./App"
 
 class App extends Component {
-	render() {
-		return (
-			<div className="App">
-				<p>hhi</p>
-			</div>
-		)
-	}
+  render() {
+    return <Questions />
+  }
 }
 
 export default App
