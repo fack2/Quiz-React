@@ -5,7 +5,7 @@ import "./question.css"
 class Questions extends Component {
   state = {
     index: 0,
-    questionNumber: data[0],
+    currentQuestion: data[0],
     end: false
   }
 
@@ -16,7 +16,7 @@ class Questions extends Component {
             index: this.state.index + 1
           },
           () => {
-            this.setState({ questionNumber: data[this.state.index] })
+            this.setState({ currentQuestion: data[this.state.index] })
           }
         )
       : this.setState({ end: !this.state.end })
@@ -28,10 +28,10 @@ class Questions extends Component {
         {!this.state.end ? (
           <div>
             <div className="question-div">
-              {this.state.questionNumber.question}
+              {this.state.currentQuestion.question}
             </div>
             <ul className="list">
-              {this.state.questionNumber.options.map((value, i) => {
+              {this.state.currentQuestion.options.map((value, i) => {
                 return (
                   <li onClick={this.nextQuestion} key={i}>
                     {value}
