@@ -1,26 +1,48 @@
 import React, { Component } from "react"
 import data from "../../data"
 import "./question.css"
+
 class Questions extends Component {
+  state = {
+    index: 0,
+    questionNumber: data[0],
+    end: false
+  }
+
+  nextQuestion = () => {
+    this.state.index !== 4
+      ? this.setState(
+          {
+            index: this.state.index + 1
+          },
+          () => {
+            this.setState({ questionNumber: data[this.state.index] })
+          }
+        )
+      : this.setState({ end: !this.state.end })
+  }
+
   render() {
-    const questionAndOption = data
-    console.log("questionAndOption", questionAndOption)
-    console.log("data", data)
-    // const items = []
-
-    // for (const [index, value] of questionAndOption.options.entries()) {
-    //   items.push(<li key={index}>{value}</li>)
-    // }
-
     return (
       <div className="largerOne">
-        <div className="question-div">{questionAndOption.question}</div>
-        {/* <p>{items}</p> */}
-        <ul className="list">
-          {questionAndOption.options.map((value, index) => {
-            return <li key={index}>{value}</li>
-          })}
-        </ul>
+        {!this.state.end ? (
+          <div>
+            <div className="question-div">
+              {this.state.questionNumber.question}
+            </div>
+            <ul className="list">
+              {this.state.questionNumber.options.map((value, i) => {
+                return (
+                  <li onClick={this.nextQuestion} key={i}>
+                    {value}
+                  </li>
+                )
+              })}
+            </ul>
+          </div>
+        ) : (
+          <p>should result</p>
+        )}
       </div>
     )
   }
