@@ -1,5 +1,6 @@
 import React from "react"
 import "./start.css"
+
 const Start = ({ start }) => {
   return (
     <main className="mainStart">
