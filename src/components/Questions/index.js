@@ -58,11 +58,11 @@ class Questions extends Component {
     return (
       <div className="largerOne">
         {!end ? (
-          <div>
+          <div className="quiz">
             <div className="question-div">{question}</div>
             {options.map((option, i) => {
               return (
-                <div key={i}>
+                <div className="option-div" key={i}>
                   <label htmlFor="selected"> </label>
                   <input
                     id="selected"
