@@ -1,5 +1,36 @@
-.mainStart {
+/* .mainStart {
   text-align: center;
   border: 1px dotted blue;
   height: 100%;
+} */
+
+body {
+  background: white;
+  font-size: 80%;
+  padding: 20px;
+}
+
+.mainStart {
+  position: relative;
+  background: white;
+  height: 400px;
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.mainPoition {
+  width: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 20px;
+  font-size: 15px;
+}
+.startButton {
+  background: #5f9ea0;
+  border-radius: 15px;
+  padding: 15px;
+  width: 100px;
 }
