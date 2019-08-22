@@ -1,20 +1,32 @@
 import React from "react"
+import "./result.css"
 
 const Result = ({ userAnswers, score }) => {
   return (
-    <div>
+    <div className="results">
       {userAnswers.map(element => {
         {
           return (
             <div key={element.index}>
-              <p>
-                question # {element.index} is {element.status}
-              </p>
+              {element.status == "true" ? (
+                <div className="eachResult">
+                  Question # {element.index} is {element.status}
+                </div>
+              ) : (
+                <div className="eachResult falseResult">
+                  Question # {element.index} is {element.status}
+                </div>
+              )}
             </div>
           )
         }
       })}
-      <h3>your score is: {score}</h3>
+      <div className="scoreDiv">
+        <br />
+        score
+        <br />
+        {score}
+      </div>
     </div>
   )
 }

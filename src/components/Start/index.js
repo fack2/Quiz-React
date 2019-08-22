@@ -4,11 +4,17 @@ import "./start.css"
 const Start = ({ start }) => {
   return (
     <main className="mainStart">
-      <h1>WELCOME</h1>
-      <p>This is our App for week-9 GSG</p>
-      <button onClick={() => start(true)} type="submit">
-        Start
-      </button>
+      <div className="mainPoition">
+        <h1>WELCOME</h1>
+        <p>Test Your Knowledge</p>
+        <button
+          className="startButton"
+          onClick={() => start(true)}
+          type="submit"
+        >
+          Start
+        </button>
+      </div>
     </main>
   )
 }
