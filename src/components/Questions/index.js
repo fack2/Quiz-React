@@ -13,23 +13,25 @@ class Questions extends Component {
     score: 0
   }
 
+  addUserAnswers = result => {
+    const { index, userAnswers } = this.state
+    this.setState({
+      userAnswers: userAnswers.concat({ index, status: result })
+    })
+  }
+
   nextQuestion = ({ target }) => {
     this.setState({ selected: target.value })
 
-    const { index, end, userAnswers, currentQuestion, score } = this.state
+    const { index, end, currentQuestion, score } = this.state
+    const { value } = target
+    const { answer } = currentQuestion
 
-    if (target.value === currentQuestion.answer) {
-      this.setState({
-        userAnswers: userAnswers.concat({
-          index,
-          status: "true"
-        }),
-        score: score + 1
-      })
+    if (value === answer) {
+      this.setState({ score: score + 1 })
+      this.addUserAnswers("true")
     } else {
-      this.setState({
-        userAnswers: userAnswers.concat({ index, status: "false" })
-      })
+      this.addUserAnswers("false")
     }
 
     index !== data.length - 1
@@ -57,7 +59,6 @@ class Questions extends Component {
             {options.map((option, i) => {
               return (
                 <div key={i}>
-                  {" "}
                   <label htmlFor="selected"> </label>
                   <input
                     id="selected"
