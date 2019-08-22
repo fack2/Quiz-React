@@ -20,20 +20,7 @@ class Questions extends Component {
     })
   }
 
-  nextQuestion = ({ target }) => {
-    this.setState({ selected: target.value })
-
-    const { index, end, currentQuestion, score } = this.state
-    const { value } = target
-    const { answer } = currentQuestion
-
-    if (value === answer) {
-      this.setState({ score: score + 1 })
-      this.addUserAnswers("true")
-    } else {
-      this.addUserAnswers("false")
-    }
-
+  moveToNextQuestion = (index, end) => {
     index !== data.length - 1
       ? this.setState(
           {
@@ -45,6 +32,23 @@ class Questions extends Component {
           }
         )
       : this.setState({ end: !end })
+  }
+
+  nextQuestion = ({ target }) => {
+    const { value } = target
+    const { index, end, currentQuestion, score } = this.state
+    const { answer } = currentQuestion
+
+    this.setState({ selected: value })
+
+    if (value === answer) {
+      this.setState({ score: score + 1 })
+      this.addUserAnswers("true")
+    } else {
+      this.addUserAnswers("false")
+    }
+
+    this.moveToNextQuestion(index, end)
   }
 
   render() {
